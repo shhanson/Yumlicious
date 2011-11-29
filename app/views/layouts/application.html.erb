@@ -4,19 +4,23 @@
 		
 		<title><%= @title %></title>
 		<%= csrf_meta_tag %>
-		
+
 		<%= stylesheet_link_tag 'lab7', :media => 'screen' %>
 		<%= stylesheet_link_tag 'lab7', :media => 'print' %>
+		
 	</head>
+	
 	<body>
-		<div id="header">
-		</div>
+		
+		<%= render 'layouts/header'%>
+			
+
 		
 		<div id="container">
 			<div id="inner">
-				<div id="menu">
-					
-				</div>
+			
+			<%= render 'layouts/menu'%>
+				
 				<div id="content">
 					<%= yield %>
 				</div>
@@ -25,8 +29,7 @@
 			
 		</div>
 			
-		<div id="footer">
-		</div>
+		<%= render 'layouts/footer'%>
 			
 	</body>
 </html>
