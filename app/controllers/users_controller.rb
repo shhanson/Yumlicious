@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @title = "Users"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @title = "View user"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +27,7 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
+    @title = "New user"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +38,14 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @title = "Edit user"
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(params[:user])
+    @title = "Create user"
 
     respond_to do |format|
       if @user.save
@@ -57,6 +62,7 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
+    @title = "Update user"
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
@@ -74,6 +80,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
+    @title = "Destroy user"
 
     respond_to do |format|
       format.html { redirect_to users_url }

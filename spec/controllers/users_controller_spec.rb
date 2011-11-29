@@ -33,6 +33,12 @@ describe UsersController do
       get :index
       assigns(:users).should eq([user])
     end
+    
+    it "should have the right title" do
+      get :index
+      response.should have_selector("title", :content=> "Users")
+    end
+    
   end
 
   describe "GET show" do
@@ -41,12 +47,22 @@ describe UsersController do
       get :show, :id => user.id
       assigns(:user).should eq(user)
     end
+    
+    it "should have the right title" do
+      get :show, :id => user.id
+      response.should have_selector("title", :content=> "View user")
+    end
   end
 
   describe "GET new" do
     it "assigns a new user as @user" do
       get :new
       assigns(:user).should be_a_new(User)
+    end
+    
+    it "should have the right title" do
+      get :new
+      response.should have_selector("title", :content=> "New user")
     end
   end
 
@@ -55,6 +71,11 @@ describe UsersController do
       user = User.create! valid_attributes
       get :edit, :id => user.id
       assigns(:user).should eq(user)
+    end
+    
+    it "should have the right title" do
+      get :edit, :id => user.id
+      response.should have_selector("title", :content=> "Edit user")
     end
   end
 

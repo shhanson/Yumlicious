@@ -4,7 +4,8 @@ describe "reviews/edit.html.erb" do
   before(:each) do
     @review = assign(:review, stub_model(Review,
       :content => "MyString",
-      :user_id => 1
+      :user_id => 1,
+      :rest_id => 1
     ))
   end
 
@@ -15,6 +16,7 @@ describe "reviews/edit.html.erb" do
     assert_select "form", :action => reviews_path(@review), :method => "post" do
       assert_select "input#review_content", :name => "review[content]"
       assert_select "input#review_user_id", :name => "review[user_id]"
+      assert_select "input#review_rest_id", :name => "review[rest_id]"
     end
   end
 end

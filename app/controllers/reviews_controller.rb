@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
   # GET /reviews.json
   def index
     @reviews = Review.all
+    @title = "Reviews"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/1.json
   def show
     @review = Review.find(params[:id])
+    @title = "Show review"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +27,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/new.json
   def new
     @review = Review.new
+    @title = "New review"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,13 +38,14 @@ class ReviewsController < ApplicationController
   # GET /reviews/1/edit
   def edit
     @review = Review.find(params[:id])
+    @title = "Edit review"
   end
 
   # POST /reviews
   # POST /reviews.json
   def create
     @review = Review.new(params[:review])
-
+    @title = "Create review"
     respond_to do |format|
       if @review.save
         format.html { redirect_to @review, notice: 'Review was successfully created.' }
@@ -57,6 +61,7 @@ class ReviewsController < ApplicationController
   # PUT /reviews/1.json
   def update
     @review = Review.find(params[:id])
+    @title = "Update review"
 
     respond_to do |format|
       if @review.update_attributes(params[:review])
@@ -74,7 +79,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
-
+    @title = "Destroy review"
     respond_to do |format|
       format.html { redirect_to reviews_url }
       format.json { head :ok }

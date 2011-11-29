@@ -2,11 +2,10 @@
 <html>
 	<head>
 		
-		<title><%= @title %></title>
+		<title>Yumlicious | <%= @title %></title>
 		<%= csrf_meta_tag %>
 
-		<%= stylesheet_link_tag 'lab7', :media => 'screen' %>
-		<%= stylesheet_link_tag 'lab7', :media => 'print' %>
+		<%= render 'layouts/stylesheets'%>
 		
 	</head>
 	

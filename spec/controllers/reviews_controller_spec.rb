@@ -33,6 +33,11 @@ describe ReviewsController do
       get :index
       assigns(:reviews).should eq([review])
     end
+    
+    it "should have the right title" do
+      get :index
+      response.should have_selector("title", :content=> "Reviews")
+    end
   end
 
   describe "GET show" do
@@ -41,12 +46,22 @@ describe ReviewsController do
       get :show, :id => review.id
       assigns(:review).should eq(review)
     end
+    
+    it "should have the right title" do
+      get :show, :id => review.id
+      response.should have_selector("title", :content=> "Show review")
+    end
   end
 
   describe "GET new" do
     it "assigns a new review as @review" do
       get :new
       assigns(:review).should be_a_new(Review)
+    end
+    
+    it "should have the right title" do
+      get :new
+      response.should have_selector("title", :content=> "New review")
     end
   end
 
@@ -55,6 +70,11 @@ describe ReviewsController do
       review = Review.create! valid_attributes
       get :edit, :id => review.id
       assigns(:review).should eq(review)
+    end
+    
+    it "should have the right title" do
+      get :edit, :id => review.id
+      response.should have_selector("title", :content=> "Edit review")
     end
   end
 

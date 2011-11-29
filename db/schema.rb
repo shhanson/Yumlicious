@@ -11,11 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111129005022) do
+ActiveRecord::Schema.define(:version => 20111129025608) do
+
+  create_table "restaurants", :force => true do |t|
+    t.string   "name"
+    t.string   "addr"
+    t.string   "city"
+    t.string   "state"
+    t.string   "phone"
+    t.string   "type"
+    t.string   "wsite"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "reviews", :force => true do |t|
     t.string   "content"
     t.integer  "user_id"
+    t.integer  "rest_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
